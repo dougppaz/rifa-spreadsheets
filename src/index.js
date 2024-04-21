@@ -3,6 +3,7 @@ import rifaService from './rifaService'
 import rifa from './componnets/rifa'
 import ticket from './componnets/ticket'
 import pay from './componnets/pay'
+import './sass/main.scss'
 
 const app = createApp()
 app.use(rifaService)

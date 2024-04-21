@@ -1,0 +1,36 @@
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+
+  .ticket {
+    flex-grow: 1;
+    padding: 2rem;
+    color: #2d3436;
+    background-color: #dfe6e9;
+    border: none;
+    cursor: pointer;
+    border-radius: .25rem;
+
+    &.not-paid {
+      background-color: #ffeaa7;
+    }
+
+    &.paid {
+      background-color: #55efc4;
+    }
+
+    &.not-paid,
+    &.paid {
+      strong {
+        color: #636e72;
+      }
+    }
+
+    &.available {
+      strong {
+        color: #00b894;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.pay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 52, 54, .5);
+  }
+
+  > .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    background-color: #dfe6e9;
+    padding: 2rem;
+    border-radius: .5rem;
+
+    > div {
+      margin: 1rem 0;
+    }
+
+    > .qrCode {
+      max-width: 200px;
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
+
+  > form.content {
+    > div {
+      > label {
+        display: block;
+        margin: .5rem 0;
+        font-weight: bold;
+      }
+
+      > input {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

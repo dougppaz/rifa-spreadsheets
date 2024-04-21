@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+  background-color: #fab1a0;
+  color: #2d3436;
+}
+
+h1 {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+@import './_rifa';
+@import './_tickets';
+@import './_pay';
