@@ -7,7 +7,7 @@ const TICKET_CLASS_MAP = {
   [DISPONIVEL]: 'available'
 }
 const TICKET_STATUS_TITLE_MAP = {
-  [EM_ABERTO]: 'Em aberto',
+  [EM_ABERTO]: 'Aguardando',
   [PAGO]: 'Pago',
   [DISPONIVEL]: 'Disponível'
 }
@@ -39,6 +39,9 @@ export default {
     <button
       :class="['ticket', ticketClass]"
       :disabled="disabled"
-      :title="statusTitle">Nº {{ ticketNumber }}</button>
+      :title="statusTitle">
+      <div>Nº{{ ticketNumber }}</div>
+      <div><strong>{{ statusTitle }}</strong></div>
+    </button>
   `
 }

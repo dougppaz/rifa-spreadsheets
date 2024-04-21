@@ -34,10 +34,10 @@ export default {
     <div v-if="rifa === null">Carregando...</div>
     <div
       v-else
-      id="rifa">
+      class="rifa">
       <h1>{{ rifa.config.title }}</h1>
       <p>{{ rifa.config.description }}</p>
-      <p>Valor do bilhete R\${{ rifa.config.ticketPrice }}</p>
+      <p><strong>Valor do bilhete:</strong> R\${{ rifa.config.ticketPrice }}</p>
       <p>
         <button
           @click="reloadRifa()"
