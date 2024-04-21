@@ -1,0 +1,46 @@
+{
+  "name": "rifa-spreadsheets",
+  "version": "0.1.0",
+  "description": "Faça rifas online com pagamento por Pix utilizando o Google Spreadsheets",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack serve",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougppaz/rifa-spreadsheets.git"
+  },
+  "keywords": [
+    "rifa",
+    "online",
+    "pix",
+    "google",
+    "spreadsheets"
+  ],
+  "author": "Douglas Paz <eu@douglaspaz.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dougppaz/rifa-spreadsheets/issues"
+  },
+  "homepage": "https://github.com/dougppaz/rifa-spreadsheets#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.25.0",
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "faz-um-pix": "^2.0.2",
+    "vue": "^3.4.23"
+  }
+}
