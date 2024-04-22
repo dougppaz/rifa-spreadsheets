@@ -21,8 +21,8 @@ class Rifa {
 }
 
 export default {
-  install: (app, options) => {
-    const rifa = new Rifa('https://script.google.com/macros/s/AKfycbw95fo1VA91pltId12GJRuEnar9_Cr2i0U6X5X3xh7OjiQjWT5DMgAssgfWbeL4uJ5h/exec')
+  install: (app, { url }) => {
+    const rifa = new Rifa(url)
     app.config.globalProperties.$rifa = rifa
   }
 }
