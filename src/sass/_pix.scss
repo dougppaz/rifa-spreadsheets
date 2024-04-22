@@ -1,0 +1,33 @@
+.pixQRCode {
+  width: 100%;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+.pixURL {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+
+  input {
+    flex-grow: 1;
+  }
+
+  button {
+    flex-grow: 0;
+  }
+
+  @media (max-width: 350px) {
+    flex-flow: column wrap;
+
+    input,
+    button {
+      width: 100%;
+    }
+  }
+}

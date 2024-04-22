@@ -41,11 +41,13 @@ export default {
   template: `
     <div
       v-if="pixQrCode"
-      class="qrCode">
+      class="pixQRCode">
       <img :src="pixQrCode" />
     </div>
     <p v-else>Gerando QR Code do Pix...</p>
-    <div v-if="pixURL">
+    <div
+      v-if="pixURL"
+      class="pixURL">
       <input
         v-model="pixURL"
         @click="inputOnClick"
