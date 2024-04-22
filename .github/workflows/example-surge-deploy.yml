@@ -13,6 +13,7 @@ jobs:
     - run: npm ci
     - run: npm run build
       env:
+        NODE_ENV: production
         SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbxe0pgqmJ0N1CuD83YEaMgcVOg9_yteBvhcpTMqV0bafSeoGVsMAjKm4pbHo88mJ46y/exec
     - uses: dswistowski/surge-sh-action@v1
       with:
