@@ -1,0 +1,23 @@
+name: dai surge.sh deploy
+
+on: push
+
+jobs:
+  surge-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20.12.2'
+    - run: npm ci
+    - run: npm run build
+      env:
+        SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbw95fo1VA91pltId12GJRuEnar9_Cr2i0U6X5X3xh7OjiQjWT5DMgAssgfWbeL4uJ5h/exec
+    - uses: dswistowski/surge-sh-action@v1
+      with:
+        domain: rifadadai.dgls.me
+        project: ./dist
+        login: ${{ vars.SURGE_LOGIN }}
+        token: ${{ secrets.SURGE_TOKEN }}
+
