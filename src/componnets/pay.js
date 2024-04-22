@@ -1,5 +1,3 @@
-import { Pix } from 'faz-um-pix/lib'
-
 export default {
   data () {
     return {
@@ -15,24 +13,8 @@ export default {
     'data'
   ],
   methods: {
-    async pay () {
+    async register () {
       const ticketNumber = this.data.ticketNumber
-      const {
-        pixKey,
-        pixKeyOwnerName,
-        pixKeyOwnerCity,
-        ticketPrice,
-        title
-      } = this.data.config
-      const pixArgs = [
-        pixKey,
-        pixKeyOwnerName,
-        pixKeyOwnerCity,
-        ticketPrice,
-        `${title}: Bilhete ${ticketNumber}`
-      ]
-      this.pix = await Pix(...pixArgs)
-      this.pixQrCode = await Pix(...pixArgs, true)
       this.payData = {
         ticketNumber,
         name: this.name,
@@ -42,23 +24,17 @@ export default {
       await this.$rifa.register(this.payData)
       this.registering = false
     },
-    inputOnClick (event) {
-      const el = event.srcElement
-      el.select()
-      el.setSelectionRange(0, el.value.length)
-      this.copyPix()
-    },
-    copyPix () {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(this.pix)
-      }
-    },
     finish () {
       this.payData = null
       this.pix = null
       this.pixQrCode = null
       this.registering = false
       this.$emit('finished')
+    }
+  },
+  computed: {
+    pixMessage () {
+      return `${this.data.config.title}: Bilhete ${this.payData.ticketNumber}`
     }
   },
   template: `
@@ -69,16 +45,12 @@ export default {
         <div>
           <p>Pague com Pix e clique em finalizar.</p>
         </div>
-        <div class="qrCode">
-          <img :src="pixQrCode" />
-        </div>
-        <div>
-          <input
-            v-model="pix"
-            @click="inputOnClick"
-            readonly />
-          <button @click="copyPix()">Copiar</button>
-        </div>
+        <pix
+          :pix-key="data.config.pixKey"
+          :pix-key-owner-name="data.config.pixKeyOwnerName"
+          :pix-key-owner-city="data.config.pixKeyOwnerCity"
+          :ticket-price="data.config.ticketPrice"
+          :message="pixMessage" />
         <div v-if="registering">Registrando pedido...</div>
         <div>
           <button
@@ -89,7 +61,7 @@ export default {
       <form
         v-else
         class="content"
-        @submit.prevent="pay()">
+        @submit.prevent="register()">
         <p>Pague pelo bilhete número {{ data.ticketNumber }}</p>
         <div>
           <label>Nome:</label>
