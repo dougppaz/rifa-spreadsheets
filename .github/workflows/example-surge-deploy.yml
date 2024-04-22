@@ -1,0 +1,23 @@
+name: example surge.sh deploy
+
+on: push
+
+jobs:
+  surge-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20.12.2'
+    - run: npm ci
+    - run: npm run build
+      env:
+        SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbySrHKIsXZxjKxN8CdYsWK9eQwNwX3EjdQRkj34Dk3ZIHqfpcsrrDx2PGECVg1pXg0XLA/exec
+    - uses: dswistowski/surge-sh-action@v1
+      with:
+        domain: rifa.dgls.me
+        project: ./dist
+        login: ${{ vars.SURGE_LOGIN }}
+        token: ${{ secrets.SURGE_TOKEN }}
+
