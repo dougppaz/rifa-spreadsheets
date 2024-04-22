@@ -1,6 +1,6 @@
 # rifa-spreadsheets
 
-Faça rifas online com pagamento por Pix utilizando o Google Spreadsheets.
+Faça rifas online com pagamento por Pix utilizando apenas HTML, CSS e Javascript no frontend e o Apps Script + Spreadsheets da Google como backend e base de dados.
 
 Exemplo [rifa.dgls.me](https://rifa.dgls.me/)
 
@@ -17,7 +17,7 @@ Exemplo [rifa.dgls.me](https://rifa.dgls.me/)
 
 ## Crie a página da rifa
 
-Para fazer o **build** da página da sua rifa você precisa da URL do
+Para fazer o **build** da página da sua rifa você precisa gerar uma URL implementanto um App da Web no Apps Script do Google.
 
 1. Vá até **Extensões > Apps Script**
    ![Abra o Apps Script](.docs/04-abra-o-apps-script.png)
