@@ -1,0 +1,17 @@
+.whatsapp-notify {
+  background-color: #b2bec3;
+  padding: 1rem;
+  border-radius: .25rem;
+
+  > p {
+    margin: 0;
+    padding: 0;
+
+    > a {
+      color: #00b894;
+      font-size: 1.25rem;
+      font-weight: bolder;
+      text-decoration: none;
+    }
+  }
+}

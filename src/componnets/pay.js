@@ -54,6 +54,11 @@ export default {
           :pix-key-owner-city="data.config.pixKeyOwnerCity"
           :ticket-price="data.config.ticketPrice"
           :message="pixMessage" />
+        <whatsapp-notify
+          v-if="data.config.whatsapp"
+          :phone-number="data.config.whatsapp"
+          :ticket-number="payData.ticketNumber"
+          :message="data.config.whatsappMessage" />
         <div v-if="registering">Registrando pedido...</div>
         <div>
           <button
