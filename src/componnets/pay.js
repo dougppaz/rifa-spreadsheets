@@ -34,7 +34,10 @@ export default {
   },
   computed: {
     pixMessage () {
-      return `${this.data.config.title}: Bilhete ${this.payData.ticketNumber}`
+      return `${this.data.config.title} bilhete ${this.payData.ticketNumber}`
+    },
+    ticketPriceVerbose () {
+      return this.data.config.ticketPrice.toFixed(2).replace('.', ',')
     }
   },
   template: `
@@ -76,7 +79,7 @@ export default {
             required />
         </div>
         <div>
-          <p><button type="submit">Pagar R\${{ data.config.ticketPrice }} por Pix</button></p>
+          <p><button type="submit">Pagar R\${{ ticketPriceVerbose }} por Pix</button></p>
           <p><button @click="finish()">Cancelar</button></p>
         </div>
       </form>

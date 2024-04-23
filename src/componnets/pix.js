@@ -32,8 +32,8 @@ export default {
       this.pixKey,
       this.pixKeyOwnerName,
       this.pixKeyOwnerCity,
-      this.ticketPrice,
-      this.message
+      this.ticketPrice.toFixed(2),
+      this.message.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     ]
     this.pixURL = await Pix(...pixArgs)
     this.pixQrCode = await Pix(...pixArgs, true)
