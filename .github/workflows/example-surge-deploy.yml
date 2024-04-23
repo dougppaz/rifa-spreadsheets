@@ -1,6 +1,9 @@
 name: example surge.sh deploy
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   surge-deploy:
