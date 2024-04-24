@@ -22,9 +22,9 @@ export default {
         ticketNumber,
         name: this.name,
         phoneNumber: this.phoneNumber,
-        email: this.data.config.paymentProxyEnabled ? this.email : undefined
+        email: this.requiredParams.includes('email') ? this.email : undefined
       }
-      if (!this.data.config.paymentProxyEnabled) {
+      if (this.data.config.payment.key === 'bc') {
         const { pixURL, pixQrCode } = await pixBuilder(
           this.data.config.pixKey,
           this.data.config.pixKeyOwnerName,
@@ -37,9 +37,9 @@ export default {
       }
       this.registering = true
       const result = await this.$rifa.register(this.payData)
-      if (result.payment) {
-        this.pixURL = result.payment.pixURL
-        this.pixQrCode = result.payment.pixQrCode
+      if (this.data.config.payment.key !== 'bc') {
+        this.pixURL = result.invoice.pixURL
+        this.pixQrCode = result.invoice.pixQrCode
       }
       this.registering = false
     },
@@ -57,6 +57,9 @@ export default {
     },
     ticketPriceVerbose () {
       return this.data.config.ticketPrice.toFixed(2).replace('.', ',')
+    },
+    requiredParams () {
+      return this.data.config.payment.requiredParams
     }
   },
   template: `
@@ -103,7 +106,7 @@ export default {
             type="text"
             required />
         </div>
-        <div v-if="data.config.paymentProxyEnabled">
+        <div v-if="requiredParams.includes('email')">
           <label>E-mail:</label>
           <input
             v-model="email"
