@@ -11,4 +11,4 @@ export default async (pixKey, pixKeyOwnerName, pixKeyOwnerCity, ticketPrice, mes
   const pixURL = await Pix(...pixArgs)
   const pixQrCode = await Pix(...pixArgs, true)
   return { pixURL, pixQrCode }
-};
+}
