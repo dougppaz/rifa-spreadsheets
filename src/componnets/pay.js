@@ -1,32 +1,51 @@
+import pixBuilder from '../pixBuilder'
+
 export default {
+  props: [
+    'data'
+  ],
   data () {
     return {
       name: '',
       phoneNumber: '',
+      email: '',
       payData: null,
-      pix: null,
+      pixURL: null,
       pixQrCode: null,
       registering: false
     }
   },
-  props: [
-    'data'
-  ],
   methods: {
     async register () {
       const ticketNumber = this.data.ticketNumber
       this.payData = {
         ticketNumber,
         name: this.name,
-        phoneNumber: this.phoneNumber
+        phoneNumber: this.phoneNumber,
+        email: this.data.config.paymentProxyEnabled ? this.email : undefined
+      }
+      if (!this.data.config.paymentProxyEnabled) {
+        const { pixURL, pixQrCode } = await pixBuilder(
+          this.data.config.pixKey,
+          this.data.config.pixKeyOwnerName,
+          this.data.config.pixKeyOwnerCity,
+          this.data.config.ticketPrice,
+          this.pixMessage
+        )
+        this.pixURL = pixURL
+        this.pixQrCode = pixQrCode
       }
       this.registering = true
-      await this.$rifa.register(this.payData)
+      const result = await this.$rifa.register(this.payData)
+      if (result.payment) {
+        this.pixURL = result.payment.pixURL
+        this.pixQrCode = result.payment.pixQrCode
+      }
       this.registering = false
     },
     finish () {
       this.payData = null
-      this.pix = null
+      this.pixURL = null
       this.pixQrCode = null
       this.registering = false
       this.$emit('finished')
@@ -49,11 +68,10 @@ export default {
           <p>Pague com Pix e clique em finalizar.</p>
         </div>
         <pix
-          :pix-key="data.config.pixKey"
-          :pix-key-owner-name="data.config.pixKeyOwnerName"
-          :pix-key-owner-city="data.config.pixKeyOwnerCity"
-          :ticket-price="data.config.ticketPrice"
-          :message="pixMessage" />
+          v-if="pixURL && pixQrCode"
+          :pix-url="pixURL"
+          :pix-qr-code="pixQrCode" />
+        <p v-else>Gerando cobrança Pix...</p>
         <whatsapp-notify
           v-if="data.config.whatsapp"
           :phone-number="data.config.whatsapp"
@@ -75,12 +93,21 @@ export default {
           <label>Nome:</label>
           <input
             v-model="name"
+            type="text"
             required />
         </div>
         <div>
           <label>Telefone:</label>
           <input
             v-model="phoneNumber"
+            type="text"
+            required />
+        </div>
+        <div v-if="data.config.paymentProxyEnabled">
+          <label>E-mail:</label>
+          <input
+            v-model="email"
+            type="email"
             required />
         </div>
         <div>
