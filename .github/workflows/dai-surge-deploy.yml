@@ -17,7 +17,7 @@ jobs:
     - run: npm run build
       env:
         NODE_ENV: production
-        SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbwoTXj0PNoOPkhRfjAyoSw4WcpLsvxAZ4hbmGZwnHNXvyfk4QMxK3UlnGg9Ye42XZAu/exec
+        SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbyELQz7GfNLmNUe2WgaUykW0oaDpIum6MZeIZzl43g2GXdxCdxCPX-kpNOnhnPIpMS-/exec
     - uses: dswistowski/surge-sh-action@v1
       with:
         domain: rifadadai.dgls.me
