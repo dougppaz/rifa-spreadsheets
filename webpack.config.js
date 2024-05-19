@@ -23,7 +23,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'index.ejs',
       title: process.env.TITLE || 'Rifa Online'
     }),
     new MiniCssExtractPlugin({
