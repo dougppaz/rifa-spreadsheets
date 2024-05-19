@@ -1,19 +1,8 @@
-import { Pix } from 'faz-um-pix/lib'
-
 export default {
   props: [
-    'pixKey',
-    'pixKeyOwnerName',
-    'pixKeyOwnerCity',
-    'ticketPrice',
-    'message'
+    'pixUrl',
+    'pixQrCode'
   ],
-  data () {
-    return {
-      pixURL: null,
-      pixQrCode: null
-    }
-  },
   methods: {
     inputOnClick (event) {
       const el = event.srcElement
@@ -23,20 +12,9 @@ export default {
     },
     copyPix () {
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(this.pixURL)
+        navigator.clipboard.writeText(this.pixUrl)
       }
     }
-  },
-  async mounted () {
-    const pixArgs = [
-      this.pixKey,
-      this.pixKeyOwnerName,
-      this.pixKeyOwnerCity,
-      this.ticketPrice.toFixed(2),
-      this.message.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    ]
-    this.pixURL = await Pix(...pixArgs)
-    this.pixQrCode = await Pix(...pixArgs, true)
   },
   template: `
     <div
@@ -44,16 +22,14 @@ export default {
       class="pixQRCode">
       <img :src="pixQrCode" />
     </div>
-    <p v-else>Gerando QR Code do Pix...</p>
     <div
-      v-if="pixURL"
-      class="pixURL">
+      v-if="pixUrl"
+      class="pixUrl">
       <input
-        v-model="pixURL"
+        v-model="pixUrl"
         @click="inputOnClick"
         readonly />
       <button @click="copyPix()">Copiar</button>
     </div>
-    <p v-else>Gerando URL Pix...</p>
   `
 }

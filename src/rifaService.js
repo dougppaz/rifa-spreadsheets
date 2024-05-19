@@ -10,11 +10,14 @@ class Rifa {
     return response.data
   }
 
-  async register ({ ticketNumber, name, phoneNumber }) {
+  async register ({ ticketNumber, name, phoneNumber, email }) {
     const params = new URLSearchParams()
     params.set('ticketNumber', ticketNumber)
     params.set('name', name)
     params.set('phoneNumber', phoneNumber)
+    if (email) {
+      params.set('email', email)
+    }
     const response = await axios.post(`${this.url}?${params.toString()}`)
     return response.data
   }
