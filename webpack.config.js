@@ -24,6 +24,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
+      title: process.env.TITLE || 'Rifa Online'
     }),
     new MiniCssExtractPlugin({
       filename: isProduction ? '[name].[contenthash].css' : '[name].css',

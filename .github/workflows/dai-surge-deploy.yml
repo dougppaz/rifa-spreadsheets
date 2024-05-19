@@ -17,6 +17,7 @@ jobs:
     - run: npm run build
       env:
         NODE_ENV: production
+        TITLE: Rifa da Daí
         SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbyELQz7GfNLmNUe2WgaUykW0oaDpIum6MZeIZzl43g2GXdxCdxCPX-kpNOnhnPIpMS-/exec
     - uses: dswistowski/surge-sh-action@v1
       with:
