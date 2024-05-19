@@ -1,13 +1,15 @@
-name: dai surge.sh deploy
+name: surge.sh deploy
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   surge-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment:
+        - example
+        - rifadadai
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -17,11 +19,11 @@ jobs:
     - run: npm run build
       env:
         NODE_ENV: production
-        TITLE: Rifa da Daí
-        SCRIPT_GOOGLE_URL: https://script.google.com/macros/s/AKfycbyELQz7GfNLmNUe2WgaUykW0oaDpIum6MZeIZzl43g2GXdxCdxCPX-kpNOnhnPIpMS-/exec
+        TITLE: ${{vars.TITLE}}
+        SCRIPT_GOOGLE_URL: ${{vars.SCRIPT_GOOGLE_URL}}
     - uses: dswistowski/surge-sh-action@v1
       with:
-        domain: rifadadai.dgls.me
+        domain: ${{vars.DOMAIN}}
         project: ./dist
         login: ${{ vars.SURGE_LOGIN }}
         token: ${{ secrets.SURGE_TOKEN }}
