@@ -76,3 +76,13 @@ Requisitos:
 
    - Altere o valor da linha 10, coluna B para `mp`
    - Adicione o Access Token da sua aplicação na linha 10, coluna C
+
+1. Adicione o Acionador baseado no tempo, para atualizar automáticamente os status de pagamento.
+
+   - Vá até o **Apps Script** em Acionadores.
+
+     ![Apps Script Acionadores](.docs/10-acionadores.png)
+
+   - Clique em **Adicionar acionador** e preencha de acordo com a imagem abaixo:
+
+     ![Adicionar acionador](.docs/11-adicionar-acionador.png)
