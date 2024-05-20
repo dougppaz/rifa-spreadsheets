@@ -3,6 +3,7 @@ export default {
     return {
       rifa: null,
       reloading: false,
+      ticketNumbers: [],
       payData: null
     }
   },
@@ -12,14 +13,15 @@ export default {
       this.rifa = await this.$rifa.retrieve()
       this.reloading = false
     },
-    pay (ticketNumber) {
+    pay () {
       this.payData = {
-        ticketNumber,
+        ticketNumbers: this.ticketNumbers,
         config: this.rifa.config
       }
     },
     async payFinished () {
       this.payData = null
+      this.ticketNumbers = []
       await this.reloadRifa()
     }
   },
@@ -49,8 +51,14 @@ export default {
           :key="ticketNumber"
           :tickets-status="rifa.ticketsStatus"
           :ticket-number="ticketNumber"
-          @click="pay(ticketNumber)" />
+          :value="ticketNumber"
+          v-model="ticketNumbers" />
       </div>
     </div>
+    <pay-action
+      v-if="!payData && ticketNumbers.length > 0"
+      :ticketNumbers="ticketNumbers"
+      :ticketPrice="rifa.config.ticketPrice"
+      @click="pay()" />
   `
 }

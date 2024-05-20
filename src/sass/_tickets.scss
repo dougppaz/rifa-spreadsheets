@@ -8,9 +8,12 @@
     padding: 2rem;
     color: #2d3436;
     background-color: #dfe6e9;
-    border: none;
+    border-width: .2rem;
+    border-style: solid;
+    border-color: transparent;
     cursor: pointer;
     border-radius: .25rem;
+    user-select: none;
 
     &.not-paid {
       background-color: #ffeaa7;
@@ -31,6 +34,14 @@
       strong {
         color: #00b894;
       }
+    }
+
+    &.checked {
+      border-color: #6c5ce7;
+    }
+
+    > input {
+      display: none;
     }
 
     > div {

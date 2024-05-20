@@ -1,15 +1,17 @@
-export const DEFAULT_MESSAGE = 'Olá, acabei de fazer o pagamento do bilhete [ticketNumber] por Pix.'
+import { verboseTicketNumbers } from '../utils'
+
+export const DEFAULT_MESSAGE = 'Olá, acabei de fazer o pagamento por Pix dos bilhetes [ticketNumbers].'
 
 export default {
   props: [
     'phoneNumber',
     'message',
-    'ticketNumber'
+    'ticketNumbers'
   ],
   computed: {
     uri () {
       const params = new URLSearchParams()
-      const text = (this.message || DEFAULT_MESSAGE).replaceAll('[ticketNumber]', this.ticketNumber)
+      const text = (this.message || DEFAULT_MESSAGE).replaceAll('[ticketNumbers]', verboseTicketNumbers(this.ticketNumbers))
       params.set('text', text)
       return `https://wa.me/${this.phoneNumber}?${params.toString()}`
     }

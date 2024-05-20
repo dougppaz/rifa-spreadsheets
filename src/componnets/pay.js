@@ -1,4 +1,5 @@
 import pixBuilder from '../pixBuilder'
+import { verboseTicketNumbers } from '../utils'
 
 export default {
   props: [
@@ -17,9 +18,9 @@ export default {
   },
   methods: {
     async register () {
-      const ticketNumber = this.data.ticketNumber
+      const ticketNumbers = this.data.ticketNumbers
       this.payData = {
-        ticketNumber,
+        ticketNumbers,
         name: this.name,
         phoneNumber: this.phoneNumber,
         email: this.requiredParams.includes('email') ? this.email : undefined
@@ -53,10 +54,13 @@ export default {
   },
   computed: {
     pixMessage () {
-      return `${this.data.config.title} bilhete ${this.payData.ticketNumber}`
+      return `${this.data.config.title} bilhetes: ${this.payData.ticketNumbers}`
     },
-    ticketPriceVerbose () {
-      return this.data.config.ticketPrice.toFixed(2).replace('.', ',')
+    ticketNumbersVerbose () {
+      return verboseTicketNumbers(this.data.ticketNumbers)
+    },
+    totalPriceVerbose () {
+      return (this.data.ticketNumbers.length * this.data.config.ticketPrice).toFixed(2).replace('.', ',')
     },
     requiredParams () {
       return this.data.config.payment.requiredParams
@@ -78,7 +82,7 @@ export default {
         <whatsapp-notify
           v-if="data.config.whatsapp"
           :phone-number="data.config.whatsapp"
-          :ticket-number="payData.ticketNumber"
+          :ticket-numbers="payData.ticketNumbers"
           :message="data.config.whatsappMessage" />
         <div v-if="registering">Registrando pedido...</div>
         <div>
@@ -91,7 +95,9 @@ export default {
         v-else
         class="content"
         @submit.prevent="register()">
-        <p>Pague pelo bilhete número {{ data.ticketNumber }}</p>
+        <p><strong>Pague pelos bilhetes:</strong></p>
+        <p>{{ ticketNumbersVerbose }}</p>
+        <hr />
         <div>
           <label>Nome:</label>
           <input
@@ -114,9 +120,11 @@ export default {
             required />
         </div>
         <div>
-          <p><button type="submit">Pagar R\${{ ticketPriceVerbose }} por Pix</button></p>
-          <p><button @click="finish()">Cancelar</button></p>
+          <p><button type="submit">Pagar R\${{ totalPriceVerbose }} por Pix</button></p>
         </div>
+        <p><button
+          type="button"
+          @click="finish()">Cancelar</button></p>
       </form>
     </div>
   `

@@ -10,9 +10,8 @@ class Rifa {
     return response.data
   }
 
-  async register ({ ticketNumber, name, phoneNumber, email }) {
-    const params = new URLSearchParams()
-    params.set('ticketNumber', ticketNumber)
+  async register ({ ticketNumbers, name, phoneNumber, email }) {
+    const params = new URLSearchParams(ticketNumbers.map((tn) => (['ticketNumber', tn])))
     params.set('name', name)
     params.set('phoneNumber', phoneNumber)
     if (email) {

@@ -14,10 +14,20 @@ const TICKET_STATUS_TITLE_MAP = {
 
 export default {
   props: [
+    'modelValue',
+    'value',
     'ticketsStatus',
     'ticketNumber'
   ],
   computed: {
+    checked: {
+      get () {
+        return this.modelValue
+      },
+      set (value) {
+        this.$emit('update:modelValue', value)
+      }
+    },
     status () {
       const status = this.ticketsStatus[this.ticketNumber]
       if (!status) {
@@ -28,20 +38,25 @@ export default {
     statusTitle () {
       return TICKET_STATUS_TITLE_MAP[this.status]
     },
-    ticketClass () {
+    statusClass () {
       return TICKET_CLASS_MAP[this.status]
+    },
+    checkedClass () {
+      return this.checked.includes(this.value) ? 'checked' : 'non-checked'
     },
     disabled () {
       return this.status !== DISPONIVEL
     }
   },
   template: `
-    <button
-      :class="['ticket', ticketClass]"
-      :disabled="disabled"
-      :title="statusTitle">
+    <label :class="['ticket', statusClass, checkedClass]">
+      <input
+        type="checkbox"
+        :disabled="disabled"
+        v-model="checked"
+        :value="value" />
       <div>Nº{{ ticketNumber }}</div>
       <div><strong>{{ statusTitle }}</strong></div>
-    </button>
+    </label>
   `
 }
