@@ -18,10 +18,10 @@ export default {
         ticketNumbers: this.ticketNumbers,
         config: this.rifa.config
       }
+      this.ticketNumbers = []
     },
     async payFinished () {
       this.payData = null
-      this.ticketNumbers = []
       await this.reloadRifa()
     }
   },
@@ -38,13 +38,9 @@ export default {
       v-else
       class="rifa">
       <h1>{{ rifa.config.title }}</h1>
-      <p>{{ rifa.config.description }}</p>
       <p><strong>Valor do bilhete:</strong> R\${{ rifa.config.ticketPrice }}</p>
-      <p>
-        <button
-          @click="reloadRifa()"
-          :disabled="reloading">Recarregar</button>
-      </p>
+      <p>{{ rifa.config.description }}</p>
+      <p><strong>Selecione os bilhetes que você quer reservar abaixo:</strong></p>
       <div class="tickets">
         <ticket
           v-for="ticketNumber in new Array(rifa.config.ticketTotal).fill().map((_, i) => i+1)"
@@ -54,9 +50,14 @@ export default {
           :value="ticketNumber"
           v-model="ticketNumbers" />
       </div>
+      <p>
+        <button
+          @click="reloadRifa()"
+          :disabled="reloading">Recarregar</button>
+      </p>
     </div>
     <pay-action
-      v-if="!payData && ticketNumbers.length > 0"
+      v-if="ticketNumbers.length > 0"
       :ticketNumbers="ticketNumbers"
       :ticketPrice="rifa.config.ticketPrice"
       @click="pay()" />
