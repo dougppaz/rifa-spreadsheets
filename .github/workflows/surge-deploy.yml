@@ -10,6 +10,7 @@ jobs:
         environment:
         - example
         - rifadadai
+    environment: ${{ matrix.environment }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -19,11 +20,11 @@ jobs:
     - run: npm run build
       env:
         NODE_ENV: production
-        TITLE: ${{vars.TITLE}}
-        SCRIPT_GOOGLE_URL: ${{vars.SCRIPT_GOOGLE_URL}}
+        TITLE: ${{ vars.TITLE }}
+        SCRIPT_GOOGLE_URL: ${{ vars.SCRIPT_GOOGLE_URL }}
     - uses: dswistowski/surge-sh-action@v1
       with:
-        domain: ${{vars.DOMAIN}}
+        domain: ${{ vars.DOMAIN }}
         project: ./dist
         login: ${{ vars.SURGE_LOGIN }}
         token: ${{ secrets.SURGE_TOKEN }}
