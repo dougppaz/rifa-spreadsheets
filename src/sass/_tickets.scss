@@ -6,27 +6,29 @@
   .ticket {
     flex-grow: 1;
     padding: 2rem;
-    color: #2d3436;
+    color: #000000;
     background-color: #dfe6e9;
     border-width: .2rem;
     border-style: solid;
     border-color: transparent;
     cursor: pointer;
-    border-radius: .25rem;
+    border-radius: 16px;
     user-select: none;
 
     &.not-paid {
-      background-color: #ffeaa7;
+      background-color: #FFCD39;
+      cursor: default;
     }
 
     &.paid {
-      background-color: #55efc4;
+      background-color: #4DD4AC;
+      cursor: default;
     }
 
     &.not-paid,
     &.paid {
       strong {
-        color: #636e72;
+        color: #343A40;
       }
     }
 

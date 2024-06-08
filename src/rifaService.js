@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class Rifa {
-  constructor (url) {
+  setUrl (url) {
     this.url = url
   }
 
@@ -24,7 +24,7 @@ class Rifa {
 
 export default {
   install: (app, { url }) => {
-    const rifa = new Rifa(url)
+    const rifa = new Rifa()
     app.config.globalProperties.$rifa = rifa
   }
 }

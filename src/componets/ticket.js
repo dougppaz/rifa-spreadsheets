@@ -7,7 +7,7 @@ const TICKET_CLASS_MAP = {
   [DISPONIVEL]: 'available'
 }
 const TICKET_STATUS_TITLE_MAP = {
-  [EM_ABERTO]: 'Aguardando',
+  [EM_ABERTO]: 'Reservado',
   [PAGO]: 'Pago',
   [DISPONIVEL]: 'Disponível'
 }
@@ -55,8 +55,8 @@ export default {
         :disabled="disabled"
         v-model="checked"
         :value="value" />
-      <div>Nº{{ ticketNumber }}</div>
-      <div><strong>{{ statusTitle }}</strong></div>
+      <div><strong>Nº{{ ticketNumber }}</strong></div>
+      <div>{{ statusTitle }}</div>
     </label>
   `
 }

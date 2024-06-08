@@ -1,13 +1,13 @@
-const path = require('path');
-const { DefinePlugin } = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const { DefinePlugin } = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 require('dotenv').config()
 
-const PRODUCTION = 'production';
-const DEVELOPMENT = 'development';
-const isProduction = process.env.NODE_ENV === PRODUCTION;
-const stylesHandler = MiniCssExtractPlugin.loader;
+const PRODUCTION = 'production'
+const DEVELOPMENT = 'development'
+const isProduction = process.env.NODE_ENV === PRODUCTION
+const stylesHandler = MiniCssExtractPlugin.loader
 
 const config = {
   entry: {
@@ -27,30 +27,31 @@ const config = {
       title: process.env.TITLE || 'Rifa Online'
     }),
     new MiniCssExtractPlugin({
-      filename: isProduction ? '[name].[contenthash].css' : '[name].css',
+      filename: isProduction ? '[name].[contenthash].css' : '[name].css'
     }),
     new DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: !isProduction,
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: !isProduction,
-      'process.env.SCRIPT_GOOGLE_URL': JSON.stringify(process.env.SCRIPT_GOOGLE_URL)
-    }),
+      'process.env.SCRIPT_GOOGLE_URL': JSON.stringify(process.env.SCRIPT_GOOGLE_URL),
+      'process.env.LIST_RIFAS_URL': JSON.stringify(process.env.LIST_RIFAS_URL)
+    })
   ],
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [stylesHandler, 'css-loader', 'sass-loader'],
+        test: /\.(sass|less|css|scss)$/,
+        use: [stylesHandler, 'css-loader', 'sass-loader']
       }
     ]
   }
-};
+}
 
 module.exports = () => {
   if (isProduction) {
-    config.mode = 'production';
+    config.mode = 'production'
   } else {
-    config.mode = 'development';
+    config.mode = 'development'
   }
-  return config;
+  return config
 }

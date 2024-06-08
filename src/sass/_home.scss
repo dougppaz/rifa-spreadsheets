@@ -1,0 +1,46 @@
+.home {
+  margin: 4rem auto 8rem;
+  padding: 1rem;
+  max-width: 600px;
+  background-color: rgba(223, 230, 233, .5);
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+ cursor: pointer;
+}
+
+
+.botao-rifa {
+  margin: 1rem 0;
+  padding: .5rem;
+  background-color: #00b894;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.botao-rifa:hover {
+  background-color: #55efc4;
+}
+
+.botao-voltar {
+  margin: 1rem 0;
+  padding: .5rem;
+  background-color: #d63031;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao-voltar:hover {
+  background-color: #ff7675;
+}
+

@@ -3,7 +3,8 @@ import { verboseTicketNumbers } from '../utils'
 
 export default {
   props: [
-    'data'
+    'data',
+    'url'
   ],
   data () {
     return {
@@ -19,6 +20,8 @@ export default {
   methods: {
     async register () {
       const ticketNumbers = this.data.ticketNumbers
+      console.log('ticket numbers')
+      console.log(ticketNumbers)
       this.payData = {
         ticketNumbers,
         name: this.name,
@@ -30,13 +33,14 @@ export default {
           this.data.config.pixKey,
           this.data.config.pixKeyOwnerName,
           this.data.config.pixKeyOwnerCity,
-          this.data.config.ticketPrice,
+          this.data.config.ticketPrice * ticketNumbers.length,
           this.pixMessage
         )
         this.pixURL = pixURL
         this.pixQrCode = pixQrCode
       }
       this.registering = true
+      this.$rifa.setUrl(this.url)
       const result = await this.$rifa.register(this.payData)
       if (this.data.config.payment.key !== 'bc') {
         this.pixURL = result.invoice.pixURL

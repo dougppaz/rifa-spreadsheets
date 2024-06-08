@@ -1,0 +1,84 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+  ?generated-in=WebStorm
+
+###
+
+
+
+# curl 'https://script.googleusercontent.com/macros/echo?user_content_key=hrIHMczIFfRFl3d5P-2galHxg9PfLh1U9ZTjR3UKn6d8LyY4wd31ztZmpXZPia3Fj8RkwudDXrXspnuHuYQbYFSRC25ECIYKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK0qQZRoQ042nXQVn0bwE8-k6PCtAlOmPBtCoeDqoPntrqR_6moWjpSK6YJCBMKyT2qTwh0Lw0VMKQhchdyWxvr2rI7KPdLEnA&lib=MzLVfY6-fcSHzeKR1KojMrCrr0JJxHR-J' --compressed -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Origin: null' -H 'Referer: http://localhost:8080/' -H 'Connection: keep-alive' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: cross-site' -H 'TE: trailers'
+GET https://script.googleusercontent.com/macros/echo?
+  user_content_key=hrIHMczIFfRFl3d5P-2galHxg9PfLh1U9ZTjR3UKn6d8LyY4wd31ztZmpXZPia3Fj8RkwudDXrXspnuHuYQbYFSRC25ECIYKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK0qQZRoQ042nXQVn0bwE8-k6PCtAlOmPBtCoeDqoPntrqR_6moWjpSK6YJCBMKyT2qTwh0Lw0VMKQhchdyWxvr2rI7KPdLEnA&
+  lib=MzLVfY6-fcSHzeKR1KojMrCrr0JJxHR-J
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Origin: null
+Referer: http://localhost:8080/
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+TE: trailers
+
+###
+
+
+
+# curl 'https://script.google.com/macros/s/AKfycbyI2usMUtoWof3QPyR-U1oM50lBjhUME-IH4aS_YXxKjhTJWYSl2jK859nMf1dXdSPP/exec?ticketNumber=1&name=Rodrigo&phoneNumber=21981155829' --compressed -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Origin: http://localhost:8080' -H 'Connection: keep-alive' -H 'Referer: http://localhost:8080/' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: cross-site' -H 'Content-Length: 0'
+POST https://script.google.com/macros/s/AKfycbyI2usMUtoWof3QPyR-U1oM50lBjhUME-IH4aS_YXxKjhTJWYSl2jK859nMf1dXdSPP/exec?
+  ticketNumber=1&name=Rodrigo&phoneNumber=21981155829
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Origin: http://localhost:8080
+Connection: keep-alive
+Referer: http://localhost:8080/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+Content-Length: 0
+###
+
+# curl 'https://script.googleusercontent.com/macros/echo?user_content_key=c4gyno0HpeZree8m-JLALO91hZAywrbzPASrhiE-iQeEoWIDtmrXjgyetq5pwquSjNg7kDhTgs0M8UWzqviNzxRVL65g-RxMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNgAEVivE9PXr93Ug0dm4f-ToBz7bGji_TL-2gs1PS8RzD4Ofx0iXw1OvpH4guVVZvxF9VE9h-8UAgAexSGwvvKGlZp4wzpJMQ&lib=M-4zBk-yIt7oKfAB5GJtbySrr0JJxHR-J' --compressed -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Origin: null' -H 'Referer: http://localhost:8080/' -H 'Connection: keep-alive' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: cross-site' -H 'TE: trailers'
+GET https://script.googleusercontent.com/macros/echo?
+  user_content_key=c4gyno0HpeZree8m-JLALO91hZAywrbzPASrhiE-iQeEoWIDtmrXjgyetq5pwquSjNg7kDhTgs0M8UWzqviNzxRVL65g-RxMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNgAEVivE9PXr93Ug0dm4f-ToBz7bGji_TL-2gs1PS8RzD4Ofx0iXw1OvpH4guVVZvxF9VE9h-8UAgAexSGwvvKGlZp4wzpJMQ&
+  lib=M-4zBk-yIt7oKfAB5GJtbySrr0JJxHR-J
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Origin: null
+Referer: http://localhost:8080/
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+TE: trailers
+
+
+###
+
+# curl 'https://script.googleusercontent.com/macros/echo?user_content_key=TXUPCA8JAf7UPkRJY1XNfwjQ6bskKdNGCnWb3rT11jwK-IsPm7Gwaips-DYdj4SZoZc3gBJkH6do3yCrn0y0RLsJjD13ANGFm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK0qQZRoQ042nXQVn0bwE8-k6PCtAlOmPBtCoeDqoPntrqR_6moWjpSK6YJCBMKyT2qTwh0Lw0VMKQhchdyWxvr2rI7KPdLEnA&lib=MzLVfY6-fcSHzeKR1KojMrCrr0JJxHR-J?ticketNumber=31&ticketNumber=34&name=asd&phoneNumber=123' --compressed -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Origin: http://localhost:8080' -H 'Connection: keep-alive' -H 'Referer: http://localhost:8080/' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: cross-site' -H 'Content-Length: 0' -H 'TE: trailers'
+POST https://script.googleusercontent.com/macros/echo?
+  user_content_key=hrIHMczIFfRFl3d5P-2galHxg9PfLh1U9ZTjR3UKn6d8LyY4wd31ztZmpXZPia3Fj8RkwudDXrXspnuHuYQbYFSRC25ECIYKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK0qQZRoQ042nXQVn0bwE8-k6PCtAlOmPBtCoeDqoPntrqR_6moWjpSK6YJCBMKyT2qTwh0Lw0VMKQhchdyWxvr2rI7KPdLEnA&
+  lib=MzLVfY6-fcSHzeKR1KojMrCrr0JJxHR-J?ticketNumber=31&ticketNumber=34&name=asd&phoneNumber=123
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Origin: http://localhost:8080
+Connection: keep-alive
+Referer: http://localhost:8080/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+Content-Length: 0
+TE: trailers
+
+###
+
+
+

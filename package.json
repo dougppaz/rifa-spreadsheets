@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "serve": "webpack serve",
+    "serve": "export LIST_RIFAS_URL=https://script.google.com/macros/s/AKfycbxkLpjYWrh-aUYzh-sYtv8dhxknVJ0Jx7XgdK2rjCZEv9mNqJbx5mAHM1otBNrgOB4U/exec && webpack serve",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "bootstrap": "5.3.3",
     "faz-um-pix": "^2.0.2",
     "vue": "^3.4.23"
   }

@@ -1,15 +1,18 @@
 export default {
+  props: ['url'],
   data () {
     return {
       rifa: null,
       reloading: false,
       ticketNumbers: [],
-      payData: null
+      payData: null,
+      urlRifa: this.url
     }
   },
   methods: {
     async reloadRifa () {
       this.reloading = true
+      this.$rifa.setUrl(this.url)
       this.rifa = await this.$rifa.retrieve()
       this.reloading = false
     },
@@ -26,10 +29,15 @@ export default {
     }
   },
   async mounted () {
+    this.$rifa.setUrl(this.urlRifa)
+    console.log(this.urlRifa)
     this.rifa = await this.$rifa.retrieve()
   },
   template: `
+    <h1>{{this.urlRifa}}</h1>
     <pay
+      :url="this.urlRifa"
+      class=""
       v-if="payData"
       :data="payData"
       @finished="payFinished()" />
@@ -37,6 +45,7 @@ export default {
     <div
       v-else
       class="rifa">
+
       <h1>{{ rifa.config.title }}</h1>
       <p><strong>Valor do bilhete:</strong> R\${{ rifa.config.ticketPrice }}</p>
       <p>{{ rifa.config.description }}</p>
