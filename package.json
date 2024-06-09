@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "serve": "export LIST_RIFAS_URL=https://script.google.com/macros/s/AKfycbxkLpjYWrh-aUYzh-sYtv8dhxknVJ0Jx7XgdK2rjCZEv9mNqJbx5mAHM1otBNrgOB4U/exec && webpack serve",
+    "serve": "webpack serve",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
